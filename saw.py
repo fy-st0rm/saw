@@ -51,9 +51,9 @@ class Wallpaper:
 
 		self.frames = os.listdir(self.out_dir)
 		if not self.frames:
-			self.speed = float(self.frames[0].split("_")[1])
 			print("No previous cache to restore from.")
 			exit()
+		self.speed = float(self.frames[0].split("_")[1])
 
 		print(f"Loaded {len(self.frames)} frames!")
 
@@ -61,7 +61,8 @@ class Wallpaper:
 		if not self.frames:
 			self.__generate_frames()
 		self.__sort_frames()
-
+		
+		print(self.frames)
 		print("Animating wallpapers...")
 		os.chdir(self.out_dir)
 		pos = 0
